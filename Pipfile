@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+diffusers = "0.8.0"
+transformers = "*"
+ftfy = "*"
+opencv-python = "*"
+ipywidgets = "*"
+diffusion = "*"
+torch = "*"
+ipykernel = "*"
+accelerate = "*"
+xformers = "*"
+fire = "*"
+scikit-image = "*"
+
+[requires]
+python_version = "3.8"
