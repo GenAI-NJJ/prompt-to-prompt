@@ -6,7 +6,12 @@ import numpy as np
 
 from pydantic import BaseModel
 
-from null_inversion import NullInversion, load_img, make_controller, run_and_display
+from src.utils.null_inversion import (
+    NullInversion,
+    load_img,
+    make_controller,
+    run_and_display,
+)
 
 
 class Main(BaseModel):
