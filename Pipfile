@@ -16,6 +16,8 @@ accelerate = "*"
 xformers = "*"
 fire = "*"
 scikit-image = "*"
+datasets = "*"
+evaluate = "*"
 
 [requires]
 python_version = "3.8"
