@@ -1,6 +1,5 @@
 from typing import Tuple
 
-from diffusers import DDIMScheduler, StableDiffusionPipeline
 from transformers import (
     AutoConfig,
     AutoModelForZeroShotImageClassification,
@@ -10,8 +9,6 @@ from transformers import (
     PretrainedConfig,
 )
 from transformers.models.clip.modeling_clip import CLIPOutput
-
-from .inverter_new import NullInversion
 
 
 class DiffusionClassifierConfig(CLIPConfig):
@@ -35,34 +32,7 @@ class DiffusionClassifierModel(CLIPModel):
     def __init__(self, config: DiffusionClassifierConfig):
         super().__init__(config)
 
-        self.scheduler = DDIMScheduler(
-            beta_start=config.beta_start,
-            beta_end=config.beta_end,
-            beta_schedule=config.beta_schedule,
-            clip_sample=config.clip_sample,
-            set_alpha_to_one=config.set_alpha_to_one,
-        )
-
-        self.ldm_satble = StableDiffusionPipeline.from_pretrained(
-            self.model_name_or_path,
-            scheduler=self.scheduler,
-        )
-
-        self.unet = self.ldm_satble.unet
-        self.vae = self.ldm_satble.vae
-        self.tokenizer = self.ldm_satble.tokenizer
-        self.text_encoder = self.ldm_satble.text_encoder
-        self.scheduler = self.ldm_satble.scheduler
-
-        self.scheduler.set_timesteps(config.num_ddim_steps)
-
-        self.inverter = NullInversion(
-            self.unet,
-            self.vae,
-            self.tokenizer,
-            self.text_encoder,
-            self.scheduler,
-        )
+        raise NotImplementedError
 
     def forward(
         self,
