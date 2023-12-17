@@ -1,9 +1,11 @@
+from evaluate import Evaluator
 import fire
-from src.main import Main
+from src.classifier import Classifier
 
 if __name__ == "__main__":
     fire.Fire(
         {
-            "main": Main,
+            "classifier": Classifier,
+            "evaluator": Evaluator,
         }
     )

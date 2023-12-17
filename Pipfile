@@ -18,6 +18,8 @@ fire = "*"
 scikit-image = "*"
 datasets = "*"
 evaluate = "*"
+torchvision = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.8"
